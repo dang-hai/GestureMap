@@ -1,0 +1,8 @@
+./irl
+tables
+arrow
+Pymongo
+Flask
+Flask-Cors
+tslearn
+dtaidistance

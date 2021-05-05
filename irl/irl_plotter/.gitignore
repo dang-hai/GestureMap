@@ -1,0 +1,4 @@
+.pytest_cache
+build/
+dist/
+irl_analytics.egg-info/
