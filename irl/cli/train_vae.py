@@ -171,18 +171,18 @@ def validation_callback(visualizer, experiment_path, batch_loss_hist, batches_pe
 
         df.to_csv(experiment_path / 'loss.csv', mode='w')
 
-        data_values = state['validation_data'].dataset.tensors[0].numpy()
-        fig1 = visualizer.plot_embedding(state, data=data_values)
-        plt.savefig(experiment_path / f'embedding_{epoch:04d}.png')
-        plt.close()
+        # data_values = state['validation_data'].dataset.tensors[0].numpy()
+        # fig1 = visualizer.plot_embedding(state, data=data_values)
+        # plt.savefig(experiment_path / f'embedding_{epoch:04d}.png')
+        # plt.close()
 
-        fig2 = visualizer.plot_interpolation(state, nrows=10, ncols=10, data=data_values)
-        plt.savefig(experiment_path / f'interpolation_{epoch:04d}.png')
-        plt.close()
+        # fig2 = visualizer.plot_interpolation(state, nrows=10, ncols=10, data=data_values)
+        # plt.savefig(experiment_path / f'interpolation_{epoch:04d}.png')
+        # plt.close()
 
-        fig3 = visualizer.plot_reconstruction(state, nrows=10, ncols=10, data=data_values)
-        plt.savefig(experiment_path / f'reconstruction_{epoch:04d}.png')
-        plt.close()
+        # fig3 = visualizer.plot_reconstruction(state, nrows=10, ncols=10, data=data_values)
+        # plt.savefig(experiment_path / f'reconstruction_{epoch:04d}.png')
+        # plt.close()
 
         ckpt = dict()
         ckpt['model_state_dict'] = state['model'].state_dict()
