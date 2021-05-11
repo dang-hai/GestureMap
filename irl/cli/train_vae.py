@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 
 @click.command()
 @click.option(
-    '-n', '--experiment_name', type=str, default="trained_model_ckpts"
+    '-n', '--experiment_name', type=str, default=Path("trained_model_ckpts")
 )
 @click.option(
     '--epochs', type=int, default=1000
