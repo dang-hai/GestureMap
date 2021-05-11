@@ -6,3 +6,5 @@ Flask
 Flask-Cors
 tslearn
 dtaidistance
+requests
+tqdm

@@ -131,4 +131,9 @@ dmypy.json
 **/.vscode/*
 **/node_modules/*
 **/*.DS_Store
-**/uploads/*
+
+**/*.csv
+**/*.h5
+**/*.rar
+**/*.zip
+**/*.xml

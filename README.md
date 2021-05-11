@@ -27,12 +27,26 @@ See the [setup instructions](SETUP.md).
 
 ## Citation
 ```
-@inproceedings{dang2021gesturemap,
-  title     = {GestureMap: SupportingVisual Analytics and Quantitative Analysis of Motion Elicitation Data by Learning 2D Embeddings},
-  author    = {Hai Dang and Daniel Buschek},
-  booktitle = {ACM Conference on Human Factors in Computing Systems},
-  year      = {2021}
+@inproceedings{
+  10.1145/3411764.3445765,
+  author = {Dang, Hai and Buschek, Daniel},
+  title = {GestureMap: Supporting Visual Analytics and Quantitative Analysis of Motion Elicitation Data by Learning 2D Embeddings},
+  year = {2021},
+  isbn = {9781450380966},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3411764.3445765},
+  doi = {10.1145/3411764.3445765},
+  booktitle = {Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems},
+  articleno = {317},
+  numpages = {12},
+  keywords = {dimensionality reduction, deep learning, visual analytics, Gesture elicitation},
+  location = {Yokohama, Japan},
+  series = {CHI '21}
 }
+
+
+
 ```
 
 ## License

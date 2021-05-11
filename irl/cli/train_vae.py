@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-import warnings
 import torch
 import click
 import sys
 
-from irl_data import LeapHandData, STBDataset, WholeBodyDataset
-from irl_plotter import Visualizer, HandPlotter, WholeBodyPlotter
+from irl_data import  WholeBodyDataset
+from irl_plotter import Visualizer, WholeBodyPlotter
 from irl_trainer.trainer import VAETrainer
 from irl_model.model import VAEFully512R4
 from irl_model.loss import VAELoss
@@ -20,13 +19,13 @@ import matplotlib.pyplot as plt
 
 @click.command()
 @click.option(
-    '-n', '--experiment_name', type=str
+    '-n', '--experiment_name', type=str, default="trained_model_ckpts"
 )
 @click.option(
-    '--epochs', type=int, default=5000
+    '--epochs', type=int, default=1000
 )
 @click.option(
-    '--dataset_type', type=click.Choice(['stb', 'wholebody']), 
+    '--dataset_type', default='wholebody'
 )
 @click.option(
     '--data', type=click.Path(exists=True)
@@ -41,7 +40,7 @@ import matplotlib.pyplot as plt
     '--batch_size', type=int, default=128
 )
 @click.option(
-    '--base_path', type=str, default=Path.home() / 'var/'
+    '--base_path', type=str, default='./'
 )
 @click.option(
     '--zdim', type=int, help='The dimension of the latent dimension', default=2
@@ -83,20 +82,8 @@ def run(**kwargs):
     else:
         experiment_path.mkdir(exist_ok=True)
     
-    # Read in dataset files
-    if kwargs['dataset_type'] == 'stb':
-        dataset = STBDataset(kwargs['data'])
-        data_values = dataset.load().values
-        plotter = HandPlotter(skeleton=dict(
-            palm=0,
-            thumb_metacarpal=1, thumb_proximal=2, thumb_middle=3, thumb_distal=4,
-            index_metacarpal=5, index_proximal=6, index_middle=7, index_distal=8,
-            middle_metacarpal=9, middle_proximal=10, middle_middle=11, middle_distal=12,
-            ring_metacarpal=13, ring_proximal=14, ring_middle=15, ring_distal=16,
-            pinky_metacarpal=17, pinky_proximal=18, pinky_middle=19, pinky_distal=20
-        ))
-    elif kwargs['dataset_type'] == 'wholebody':
-        dataset = WholeBodyDataset(kwargs['data'])
+    if kwargs['dataset_type'] == 'wholebody':
+        dataset = WholeBodyDataset(Path(kwargs['data']))
         data_values = dataset.load().values
         plotter = WholeBodyPlotter(skeleton=dict(
             head=3, shoulder_center=2, spine=1, hip_center=0, 

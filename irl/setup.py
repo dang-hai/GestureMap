@@ -15,5 +15,8 @@ setup(
         "irl_trainer",
         "cli"
     ],
+    scripts=[
+        "cli/train_vae.py"
+    ],
     install_requires=requirements
 )
