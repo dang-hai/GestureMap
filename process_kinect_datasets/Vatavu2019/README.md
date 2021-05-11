@@ -23,5 +23,5 @@ python ./create_combined_file.py ./output vatavu_combined
 
 4. Train the VAE
 ```
-python -m irl.cli.train  --epochs 1000 --data vatavu_combined --device cuda --validation_freq 100 --annealing monotonic --warmup 20 --zdim 2 --dataset_type wholebody --cold_duration 10 --lr 3e-04
+python -m cli.train  --epochs 1000 --data vatavu_combined --device cuda --validation_freq 100 --annealing monotonic --warmup 20 --zdim 2 --dataset_type wholebody --cold_duration 10 --lr 3e-04
 ```
